@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "agentDetails";
+}
+
+@using (Html.BeginForm())
+{
+    <table class="table" style="margin-top:80px;">
+        <thead>
+            <tr>
+                <th>Agent Id</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>ContactNumber</th>
+                <th>Status</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tbody>
+                <tr>
+                    <td>@item.AgentId</td>
+                    <td>@item.FirstName</td>
+                    <td>@item.LastName</td>
+                    <td>@item.Age</td>
+                    <td>@item.Gender</td>
+                    <td>@item.ContactNumber</td>
+                    <td>@item.Status</td>
+                    <td>@Html.ActionLink("Accept", "AcceptAgent", "AgentDetails", new { id = item.AgentId }, null)</td>
+                    <td>@Html.ActionLink("Reject", "RejectAgent", "AgentDetails", new { id = item.AgentId }, null)</td>
+                </tr>
+            </tbody>
+        }
+
+    </table>}
+
+<div>
+    <button class="btn btn-primary btn-sm" onclick="location.href='@Url.Action("AdminHome","AdminLogin")'">Back</button>
+</div>

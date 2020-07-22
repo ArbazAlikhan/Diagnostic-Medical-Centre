@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "PatientIdsList";
+}
+
+    <html>
+    <head>
+        @Styles.Render("~/Content/StyleSheet.css")
+    </head>
+    <body>
+        @using (Html.BeginForm())
+        {
+            <table style="margin-top:10px;">
+                <thead>
+                    <tr>
+                        <th><h2 class="text-danger"> Patients Ids List</h2></th>
+                    </tr>
+                </thead>
+                @{
+                    foreach (var item in Model)
+                    {
+
+                        string id = item.ToString();
+                        <tbody>
+                            <tr>
+                                <td><h3>@Html.ActionLink(id, "TestResultList", "DoctorLogin", new { patientId = item }, null)</h3></td>
+                            </tr>
+                        </tbody>
+                    }
+                }
+            </table><br /><br />
+        }
+        <h4 class="text-danger">*Please click on the Patient Id for more information.</h4>
+        <br />
+        <button class="btn btn-primary" style="margin-top:60px;margin-bottom:0px;" onclick="location.href='@Url.Action("DoctorHome", "DoctorLogin")'">Back</button>
+
+    </body>
+    </html>

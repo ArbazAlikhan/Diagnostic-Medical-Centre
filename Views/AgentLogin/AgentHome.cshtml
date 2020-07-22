@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "AgentHome";
+}
+<br />
+<h2>AgentHome</h2>
+
+@using (Html.BeginForm())
+{
+    if (Session["UserId"] != null)
+    {
+        @ViewBag.ValidationMessage;
+       
+    }
+
+    <br />
+    <div class="btn-group-vertical">
+        <br />
+        <a href='@Url.Action("AppointmentForm", "BookAppointment")' class="btn btn-success btn-group-lg">Book AppointMent</a>
+        <br />
+        <a href='@Url.Action("Medicaresview", "AgentLogin")' class="btn btn-info btn-group-lg">View Medicare Services</a>
+        <br />
+        <a href='@Url.Action("Doctorsview", "AgentLogin")' class="btn btn-info btn-group-lg">View Doctor</a>
+        <br />
+        <a href='@Url.Action("Agentsview", "AgentLogin")' class="btn btn-info btn-group-lg">View Agent</a>
+        <br />
+        <a href='@Url.Action("Appointmentview","AgentLogin")' class="btn btn-info btn-group-lg">View Appointment</a>
+        <br />
+        <a href="" class="btn btn-warning btn-group-lg">Logout</a>
+    </div>
+}

@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "Appointmentview";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="center">
+        <br />
+        <h3 style="color:darkblue;"> Appointments Available</h3>
+        <table class="table" style="margin-top:30px;margin-bottom:30px;width:40%;">
+            <thead>
+                <tr>
+                    <th>AppointmentId</th>
+                    <th>Doctor Name</th>
+
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                string id = item.AppointmentId.ToString();
+                <tbody>
+                    <tr>
+                        <td><h4>@Html.ActionLink(id, "AppointmentsList", "AgentLogin", new { appinId = item.AppointmentId }, null)</h4></td>
+                        <td>@item.DoctorName</td>
+                    </tr>
+                </tbody>
+}
+
+        </table>
+    </div>
+    <div>
+        <button class="btn btn-primary" onclick="location.href='@Url.Action("Roles","RoleSelection")'">Back</button>
+    </div>}

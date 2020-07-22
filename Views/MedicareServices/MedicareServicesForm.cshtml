@@ -1,0 +1,64 @@
+﻿@model DiagnosticMedical.Models.Medicare
+@{
+    ViewBag.Title = "MedicareServicesForm";
+}
+
+<html>
+<head>
+    @Styles.Render("~/Content/StyleSheet.css")
+</head>
+<body>
+    <h2 style="margin-top:50px;margin-bottom:20px;">Medicare Services Details</h2>
+    @using (Html.BeginForm("MedicareServicesForm", "MedicareServices", FormMethod.Post))
+    {
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.DoctorId)
+            @Html.TextBoxFor(m => m.DoctorId, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.DoctorId, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.MedicareId)
+            @Html.TextBoxFor(m => m.MedicareId, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.MedicareId, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-inline">
+            @Html.LabelFor(m => m.MedicareServiceName) &nbsp;&nbsp;
+            &nbsp;&nbsp;@Html.RadioButtonFor(m => m.MedicareServiceName, "Blood Glucose Level", new { @class = "form-control" })&nbsp;&nbsp;Blood Glucose Level
+            &nbsp;&nbsp; @Html.RadioButtonFor(m => m.MedicareServiceName, "Full Helath Checkup", new { @class = "form-control" })&nbsp;&nbsp;Full Health Checkup
+            <br />&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            &nbsp;&nbsp; @Html.RadioButtonFor(m => m.MedicareServiceName, "RBC & WBC Check", new { @class = "form-control" })&nbsp;&nbsp;RBC & WBC Check
+            &nbsp;&nbsp; @Html.RadioButtonFor(m => m.MedicareServiceName, " ERC & Serum Level", new { @class = "form-control" })&nbsp;&nbsp;ERC & Serum Level
+            @Html.ValidationMessageFor(m => m.MedicareServiceName, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-inline">
+            @Html.LabelFor(m => m.Eligibility) &nbsp;&nbsp;
+            &nbsp;&nbsp;@Html.RadioButtonFor(m => m.Eligibility, "Patient", new { @class = "form-control" })&nbsp;&nbsp;Patient
+            &nbsp;&nbsp; @Html.RadioButtonFor(m => m.Eligibility, "Agent", new { @class = "form-control" })&nbsp;&nbsp;Agent
+            &nbsp;&nbsp; @Html.RadioButtonFor(m => m.Eligibility, "Other", new { @class = "form-control" })&nbsp;&nbsp;Other
+            @Html.ValidationMessageFor(m => m.Eligibility, "", new { @class = "text-danger" })
+        </div>
+
+        <div style="margin-bottom:30px;">
+            <br />
+            <button class="btn btn-success" type="submit">Update</button>
+            <button class="btn btn-warning" type="reset">Reset</button>
+        </div>}
+
+    <div>
+        <button class="btn btn-primary btn-sm" onclick="location.href='@Url.Action("DoctorHome","DoctorLogin")'">Back</button>
+    </div>
+
+    <h4 class="text-danger">@ViewBag.ValidationMessage</h4>
+    <br />
+    <br />
+</body>
+</html>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

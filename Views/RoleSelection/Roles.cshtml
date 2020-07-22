@@ -1,0 +1,52 @@
+﻿@model DiagnosticMedical.Models.Patient
+@{
+    ViewBag.Title = "Roles";
+}
+
+<html>
+<head>
+    <link href="@Url.Content("~/Content/StyleSheet.css")" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <center>
+        <br /><br />
+        <br /><br />
+        <div class="Roles-page-title">
+        </div>
+        <div class="row">
+            <div class="home">
+                <div style="text-align:center;padding-top:30px;">
+                    <h3>Admin</h3>
+                    <button class="btn btn-primary" onclick="location.href='@Url.Action("Login", "AdminLogin")'">Login</button>
+                    <p style="font-family:sans-serif;margin-top:10px;"><b>New User?</b></p>
+                    <button class="btn btn-info" onclick="location.href='@Url.Action("AdminRegistrationForm", "AdminRegistration")'">Register</button>
+                </div>
+            </div>
+            <div class="home">
+                <div style="text-align:center;padding-top:30px;">
+                    <h3>Agent</h3>
+                    <button class="btn btn-primary " onclick="location.href='@Url.Action("Login", "AgentLogin")'">Login</button>
+                    <p style="font-family:sans-serif;margin-top:10px;"><b>New User?</b></p>
+                    <button class="btn btn-info" onclick="location.href='@Url.Action("AgentRegistrationForm", "AgentRegistration")'">Register</button>
+                </div>
+            </div>
+            <div class="home">
+                <div style="text-align:center;padding-top:30px;">
+                    <h3>Patient</h3>
+                    <button class="btn btn-primary " onclick="location.href='@Url.Action("Login", "PatientLogin")'">Login</button>
+                    <p style="font-family:sans-serif;margin-top:10px;"><b>New User?</b></p>
+                    <button class="btn btn-info" onclick="location.href='@Url.Action("PatientRegistrationForm", "PatientRegistration")'">Register</button>
+                </div>
+            </div>
+            <div class="home">
+                <div style="text-align:center;padding-top:30px;">
+                    <h3>Doctor</h3>
+                    <button class="btn btn-primary " onclick="location.href='@Url.Action("Login","DoctorLogin")'">Login</button>
+                    <p style="font-family:sans-serif;margin-top:10px;"><b>New User?</b></p>
+                    <button class="btn btn-info" onclick="location.href='@Url.Action("DoctorRegistrationForm", "DoctorRegistration")'">Register</button>
+                </div>
+            </div>
+        </div><br>
+    </center>
+</body>
+</html>

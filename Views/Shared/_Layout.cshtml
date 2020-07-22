@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Diagnostics Medical Center</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <style>
+        .navbar {
+            margin-bottom: 0;
+            background-color: #49eb9c;
+            border: 0;
+            text-align:center;
+            font-size: 14px !important;
+            letter-spacing: 2px;
+            border-radius: 0;
+            font-family: sans-serif;
+        }
+            .navbar li a, .navbar {
+                color: #fff !important;
+            }
+
+        .navbar-nav li a:hover, .navbar-nav li.active a {
+            color: #49eb9c !important;
+            background-color: #fff !important;
+            padding-top: 23px;
+        }
+
+        .navbar ul {
+            background-color: #49eb9c;
+        }
+
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            color: black;
+            text-align: center;
+            font-family: sans-serif;
+            letter-spacing: 1px;
+        }
+    </style>
+  
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="header-class" href='@Url.Action("Roles", "RoleSelection")'>
+                    <h3 class="navbar-header" style="color:white;font-family:sans-serif;padding-bottom:10px">DiagnosticMedicalCenter</h3>
+                </a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li>
+                    <p style="color:white;margin-left:42%;padding-top:23px;font-family:sans-serif">Diagnoised For a Better Living and Future </p>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li><a href='@Url.Action("Roles", "RoleSelection")'><span class="glyphicon glyphicon-off"></span> Logout</a></li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+
+        <footer class="footer">
+            <p><h5>&copy; @DateTime.Now.Year - Medical Diagnostics Center</h5></p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Medicaresview";
+}
+
+
+
+@using (Html.BeginForm())
+{
+}
+<br />
+<h3>Medicare Services</h3>
+<table class="table" style="margin-top:80px;">
+    <thead>
+        <tr>
+            <th>MedicareId</th>
+            <th>DoctorId</th>
+            <th>MedicareServiceName</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        string id = item.MedicareId.ToString();
+        <tbody>
+            <tr>
+                <td><h3>@Html.ActionLink(id, "MedicareServices", "AgentLogin", new { serviceId = item.MedicareId }, null)</h3></td>
+                <td>@item.DoctorId</td>
+                <td>@item.MedicareServiceName</td>
+            </tr>
+        </tbody>
+    }
+
+</table>
+
+<div>
+    <button class="btn btn-primary" onclick="location.href='@Url.Action("AgentHome","AgentLogin")'">Back</button>
+</div>

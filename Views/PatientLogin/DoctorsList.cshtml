@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "DoctorsList";
+}
+<br />
+<h2>DoctorsDetails</h2>
+<table class="table" style="margin-top:50px;">
+    <thead>
+        <tr>
+            <th>DoctorId</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age </th>
+            <th>Gender</th>
+            <th>Contact Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@ViewBag.DoctorId</td>
+            <td>@ViewBag.FirstName</td>
+            <td>@ViewBag.LastName</td>
+            <td>@ViewBag.Age</td>
+            <td>@ViewBag.Gender</td>
+            <td>@ViewBag.ContactNumber</td>
+        </tr>
+    </tbody>
+
+
+</table>
+
+<div>
+    <button class="btn btn-primary" onclick="location.href='@Url.Action("Doctorsview","PatientLogin")'">Back</button>
+</div>
+

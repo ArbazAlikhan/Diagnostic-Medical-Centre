@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "AdminHome";
+}
+
+<br />
+<br />
+<h2>AdminHome</h2>
+
+@using (Html.BeginForm())
+{
+    if (Session["UserId"] != null)
+    {
+        @ViewBag.ValidationMessage;
+
+    }
+    <br />
+    <div class="btn-group-vertical">
+        <br />
+        <a href='@Url.Action("AgentRegistrationForm", "AgentRegistration")' class="btn btn-success btn-group-lg ">Create Agent</a>
+        <br />
+        <a href='@Url.Action("PatientIdsList", "AdminLogin")' class="btn btn-primary btn-group-lg ">UpdateTestResults</a>
+        <br />
+        <a href='@Url.Action("patientDetails", "PatientDetails")' class="btn btn-info btn-group-lg ">Patient</a>
+        <br />
+        <a href='@Url.Action("doctorDetails", "DoctorDetails")' class="btn btn-info btn-group-lg ">Doctor</a>
+        <br />
+        <a href='@Url.Action("agentDetails", "AgentDetails")' class="btn btn-info btn-group-lg ">Agent</a>
+
+    </div>
+
+
+}

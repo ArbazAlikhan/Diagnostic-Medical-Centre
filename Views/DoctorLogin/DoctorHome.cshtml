@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "DoctorHome";
+}
+<br />
+<h2>DoctorHome</h2>
+@using (Html.BeginForm())
+{
+    if (Session["UserId"] != null)
+    {
+        <h3>@ViewBag.ValidationMessage</h3>
+    }
+
+    <br />
+    <div class="btn-group-vertical">
+        <br />
+        <a href='@Url.Action("MedicareServicesForm", "MedicareServices")' class="btn btn-success btn-group-lg ">Create Medicare Services</a>
+        <br />
+        <a href='@Url.Action("bookAppointmentDetails", "BookAppointmentDetails")' class="btn btn-info btn-group-lg ">Checkup Requests</a>
+        <br />
+        <a href='@Url.Action("PatientIdsList","DoctorLogin")' class="btn btn-info btn-group-lg ">View Test Result</a>
+        <br />
+        <a href="" class="btn btn-warning btn-group-lg ">Logout</a>
+    </div>
+
+
+
+}

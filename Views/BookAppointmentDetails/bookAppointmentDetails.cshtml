@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "bookAppointmentDetails";
+}
+
+<br />
+<h2>AppointmentDetails</h2>
+
+
+@using (Html.BeginForm())
+{
+    <table class="table" style="margin-top:80px;">
+        <thead>
+            <tr>
+                <th>Doctor Name</th>
+                <th>Service Name</th>
+                <th>Selected Date</th>
+                <th>Status</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tbody>
+                <tr>
+                    <td>@item.DoctorName</td>
+                    <td>@item.MedicareService</td>
+                    <td>@item.SelectDate</td>
+                    <td>@item.Status</td>
+                    <td>@Html.ActionLink("Approve", "AcceptBookAppointment", "BookAppointmentDetails", new { id = item.AppointmentId }, null)</td>
+                    <td>@Html.ActionLink("Reject", "RejectBookAppointment", "BookAppointmentDetails", new { id = item.AppointmentId }, null)</td>
+                </tr>
+            </tbody>
+        }
+
+    </table>}
+
+<div>
+    <button class="btn btn-primary btn-sm" onclick="location.href='@Url.Action("DoctorHome","DoctorLogin")'">Back</button>
+</div>

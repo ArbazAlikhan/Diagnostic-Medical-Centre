@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Medicareservices";
+}
+
+<br />
+<h3>Medicare Services</h3>
+
+<table class="table" style="margin-top:50px;">
+    <thead>
+        <tr>
+            <th>MedicareId</th>
+            <th>DoctorId</th>
+            <th>MedicareServiceName</th>
+            <th>Eligibility</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@ViewBag.MedicareServiceId</td>
+            <td>@ViewBag.DoctorId</td>
+            <td>@ViewBag.MedicareServiceName</td>
+            <td>@ViewBag.Eligibility</td>
+        </tr>
+    </tbody>
+
+</table>
+<div>
+    <button class="btn btn-primary" onclick="location.href='@Url.Action("Medicaresview","PatientLogin")'">Back</button>
+</div>

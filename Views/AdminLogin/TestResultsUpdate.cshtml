@@ -1,0 +1,125 @@
+﻿
+@model DiagnosticMedical.Models.TestResult
+@{
+    ViewBag.Title = "TestResultsUpdate";
+}
+<html>
+<head>
+    @Styles.Render("~/Content/StyleSheet.css")
+</head>
+<body>
+    <h2 style="margin-top:10px;margin-bottom:30px;">Update Test Results</h2>
+    @using (Html.BeginForm("SaveTestResults", "AdminLogin", FormMethod.Post))
+    {
+        <div class="form-inline">
+            <div class="form-group">
+                @Html.LabelFor(m => m.AppointmentId)&nbsp;
+                @Html.TextBoxFor(m => m.AppointmentId, new { @class = "form-control", @Value = ViewBag.AppointmentId, @readonly = "readonly" })
+                @Html.ValidationMessageFor(m => m.AppointmentId, "", new { @class = "text-danger" })
+
+            </div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="form-group">
+                @Html.LabelFor(m => m.PatientId)&nbsp;
+                @Html.TextBoxFor(m => m.PatientId, new { @class = "form-control", @Value = ViewBag.PatientId, @readonly = "readonly" })
+                @Html.ValidationMessageFor(m => m.PatientId, "", new { @class = "text-danger" })
+            </div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="form-group">
+                @Html.LabelFor(m => m.DoctorId)&nbsp;
+                @Html.TextBoxFor(m => m.DoctorId, new { @class = "form-control", @Value = ViewBag.DoctorId, @readonly = "readonly" })
+                @Html.ValidationMessageFor(m => m.DoctorId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-inline" style="margin-top:20px;">
+            <div class="form-group">
+                @Html.LabelFor(m => m.MedicareService)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                @Html.TextBoxFor(m => m.MedicareService, new { @class = "form-control", @Value = ViewBag.MedicareService })
+                @Html.ValidationMessageFor(m => m.MedicareService, "", new { @class = "text-danger" })
+            </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="form-group">
+                @Html.LabelFor(m => m.Date)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                @Html.TextBoxFor(m => m.Date, new { @class = "form-control", @Value = ViewBag.Date, @readonly = "readonly" })
+                @Html.ValidationMessageFor(m => m.Date, "", new { @class = "text-danger" })
+            </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </div>
+        <hr />
+
+
+        if (ViewBag.MedicareService == "Blood Glucose Level")
+        {
+            <div class="form-group">
+                <h5 class="text-danger"><b>Tested Blood Glucose</b></h5>
+                @Html.TextBoxFor(m => m.TestValue, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.TestValue, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <h5 class="text-danger"><b>Normal Value</b></h5>
+                @Html.TextBoxFor(m => m.NormalValue, new { @class = "form-control", @Value = "< 200 mg/dL (5.18 mmol/L)", @readonly = "readonly" })
+                @Html.ValidationMessageFor(m => m.NormalValue, "", new { @class = "text-danger" })
+            </div>
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+            }
+        }
+        else if (ViewBag.MedicareService == "Plasma-Serum Levels")
+        {
+            <div class="form-group">
+                <h5 class="text-danger"><b>Plasma-Serum level</b></h5>
+                @Html.TextBoxFor(m => m.TestValue, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.TestValue, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <h5 class="text-danger"><b>Normal Value</b></h5>
+                @Html.TextBoxFor(m => m.NormalValue, new { @class = "form-control", @Value = " Upto 1.2 mg/dL (7.18 mmol/L)", @readonly = "readonly" })
+                @Html.ValidationMessageFor(m => m.NormalValue, "", new { @class = "text-danger" })
+            </div>
+            
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+            }
+        }
+        else if (ViewBag.MedicareService == "RBC & WBC Check")
+        {
+            <div class="form-group">
+                <h5 class="text-danger"><b>Blood Count</b></h5>
+                @Html.TextBoxFor(m => m.TestValue, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.TestValue, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <h5 class="text-danger"><b>Normal Value</b></h5>
+                @Html.TextBoxFor(m => m.NormalValue, new { @class = "form-control", @Value = "4.6L- 7.6mol/L", @readonly = "readonly" })
+                @Html.ValidationMessageFor(m => m.NormalValue, "", new { @class = "text-danger" })
+            </div>
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+            }
+        }
+        else if (ViewBag.MedicareService == "ERC & Serum Level")
+        {
+            <div class="form-group">
+                <h5 class="text-danger"><b>Erithrhrocytes & Serum</b></h5>
+                @Html.TextBoxFor(m => m.TestValue, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.TestValue, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <h5 class="text-danger"><b>Base Value</b></h5>
+                @Html.TextBoxFor(m => m.NormalValue, new { @class = "form-control", @Value = "3.46L- 8.6mol/L", @readonly = "readonly" })
+                @Html.ValidationMessageFor(m => m.NormalValue, "", new { @class = "text-danger" })
+            </div>
+          
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+            }
+        }
+
+        <div style="margin-bottom:30px;margin-top:20px;">
+            <button class="btn btn-primary" type="submit" id="Sumbit">Submit</button>
+            <button class="btn btn-primary" type="reset" id="Sumbit">Reset</button>
+        </div>
+        <button class="btn btn-primary btn-primary" style="margin-top:60px;margin-left:95%;margin-bottom:0px;" onclick="location.href='@Url.Action("AdminHome", "AdminLogin")'">Back</button>
+
+
+    }
+    <h4 class="text-danger">@ViewBag.ValidationMessage</h4>
+</body>
+</html>

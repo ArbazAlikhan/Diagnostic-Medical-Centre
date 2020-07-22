@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "TestResultList";
+}
+
+    <html>
+    <head>
+        @Styles.Render("~/Content/StyleSheet.css")
+    </head>
+    <body>
+        @using (Html.BeginForm())
+        {
+            <h3 class="text-danger">Test Details</h3>
+            <table class="table" style="margin-top:20px;">
+                <thead>
+                    <tr>
+                        <th>Test Id</th>
+                        <th>Patient Id</th>
+                        <th>Patient Name</th>
+                        <th>Gender</th>
+                        <th>Patient Age</th>
+                        <th>Medicare Service</th>
+                    </tr>
+                </thead>
+                @foreach (var item in Model)
+                {
+                    string id = (item.TestId).ToString();
+                    <tbody>
+                        <tr>
+                            <td><h5>@Html.ActionLink(id, "DetailsList", "DoctorLogin", new { testId = item.TestId }, null)</h5></td>
+                            <td><h5>@item.PatientId</h5></td>
+                            <td><h5>@ViewBag.PatientFirstName @ViewBag.PatientLastName</h5></td>
+                            <td><h5>@ViewBag.PatientGender</h5></td>
+                            <td><h5>@ViewBag.PatientAge</h5></td>
+                            <td><h5>@item.MedicareService</h5></td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+        }
+        <h4 class="text-primary">*Please click on the Test Id for more information.</h4>
+<br />
+        <button class="btn btn-primary" style="margin-top:60px;margin-bottom:0px;" onclick="location.href='@Url.Action("PatientIdsList", "DoctorLogin")'">Back</button>
+
+    </body>
+    </html>
+

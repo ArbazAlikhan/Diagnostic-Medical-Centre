@@ -1,0 +1,68 @@
+﻿@model DiagnosticMedical.Models.Agent
+@{
+    ViewBag.Title = "AgentRegistrationForm";
+}
+
+<html>
+<head>
+    @Styles.Render("~/Content/StyleSheet.css")
+</head>
+<body>
+    <h2 style="margin-top:50px;margin-bottom:20px;">Agent Registration Form</h2>
+    @using (Html.BeginForm("AgentRegistrationForm", "AgentRegistration", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.LabelFor(m => m.FirstName)
+            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.LastName)
+            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Age)
+            @Html.TextBoxFor(m => m.Age, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Age, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-inline">
+            @Html.LabelFor(m => m.Gender) &nbsp;&nbsp;
+            Male&nbsp;&nbsp;@Html.RadioButtonFor(m => m.Gender, "Male", new { @class = "form-control" })&nbsp;&nbsp;
+            Female&nbsp;&nbsp; @Html.RadioButtonFor(m => m.Gender, "Female", new { @class = "form-control" })&nbsp;&nbsp;
+            Other&nbsp;&nbsp; @Html.RadioButtonFor(m => m.Gender, "Other", new { @class = "form-control" })&nbsp;&nbsp;
+            @Html.ValidationMessageFor(m => m.Gender, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.ContactNumber)
+            @Html.TextBoxFor(m => m.ContactNumber, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.ContactNumber, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.AgentId)
+            @Html.TextBoxFor(m => m.AgentId, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.AgentId, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Password)
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.ConfirmPassword)
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+        </div>
+        <div style="margin-bottom:30px;">
+            <button class="btn btn-primary" type="submit" id="Sumbit">Submit</button>
+            <button class="btn btn-warning" type="reset" id="Sumbit">Reset</button>
+        </div>}
+    <h4 class="text-danger">@ViewBag.ValidationMessage</h4>
+    <br />
+    <br />
+</body>
+</html>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}

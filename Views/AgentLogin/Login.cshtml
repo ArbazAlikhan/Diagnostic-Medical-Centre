@@ -1,0 +1,31 @@
+﻿@model DiagnosticMedical.Models.Agent
+@{
+    ViewBag.Title = "Agent Login";
+}
+
+<h2 style="margin-top:80px;">Agent Login</h2>
+@using (Html.BeginForm("Login", "AgentLogin", FormMethod.Post))
+{
+    <div style="margin-top:20px;">
+        <div class="form-group">
+            @Html.Label("User Id")
+            @Html.TextBox("UserId", null, new { @class = "form-control", id = "userId" })
+            @Html.ValidationMessageFor(m => m.AgentId, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.Label("Password")
+            @Html.Password("Password", null, new { @class = "form-control", id = "password" })
+            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+        </div>
+        <div style="margin-bottom:30px;margin-top:20px;">
+            <button class="btn btn-primary" type="submit" id="Sumbit">Submit</button>
+            <button class="btn btn-warning" type="reset" id="Sumbit">Reset</button>
+        </div>
+        <div class="text-danger">
+            <h4>@ViewBag.ValidationMessage</h4>
+        </div>
+    </div>}
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}

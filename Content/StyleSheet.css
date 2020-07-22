@@ -1,0 +1,28 @@
+﻿.home {
+    width: 20%;
+    height: 250px;
+    margin-top: 40px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-left: 27px;
+}
+
+footer {
+    bottom: 0%;
+    width: 100%;
+    font-size: large;
+    text-align: center;
+}
+
+.custom-navbar-text {
+    margin-left: 30%;
+    color: white;
+}
+
+.input-validation-error {
+    border: 1px solid red;
+}
+
+.header-class:hover {
+    color: #ffd800;
+}
